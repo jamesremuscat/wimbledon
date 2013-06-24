@@ -17,7 +17,7 @@ public class Wimbledon implements ScoresHandler {
     System.out.print(ESC + "2J"); // clear screen
 
     for (final MatchScore match : scores.getMatches()) {
-      System.out.format("%-14s%25s %-5s  %-25s %-25s\n", match.getCourt(), match.getPlayer1(), match.getPointsAsString(), match.getScoresAsString(), match.getPlayer2());
+      System.out.format("%-14s%25s %-7s  %-25s %-25s\n", match.getCourt(), match.getPlayer1(), match.getPointsAsString(), match.getScoresAsString(), match.getPlayer2());
     }
 
     System.out.println(new Date());
