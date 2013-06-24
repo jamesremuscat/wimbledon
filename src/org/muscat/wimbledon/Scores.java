@@ -35,14 +35,34 @@ public class Scores {
       final String fullEventText = table.select("div.eventinfo").text();
       ms.setCourt(fullEventText.substring(0, fullEventText.indexOf("-") - 1));
 
-      ms.setPlayer1(table.select("div.teamOne").select("div.name").text());
-      ms.setPlayer2(table.select("div.teamTwo").select("div.name").text());
+      final Elements teamOne = table.select("div.teamOne");
+      final Elements teamTwo = table.select("div.teamTwo");
+
+      ms.setPlayer1(teamOne.select("div.name").text());
+      ms.setPlayer2(teamTwo.select("div.name").text());
+
+      final int[] scores1 = new int[5];
+      final int[] scores2 = new int[5];
+      for (int i = 0; i < 5; i++) {
+        scores1[i] = getScoreFrom(teamOne.select("span.set" + (i + 1)).text());
+        scores2[i] = getScoreFrom(teamTwo.select("span.set" + (i + 1)).text());
+      }
+
+      ms.setScores1(scores1);
+      ms.setScores2(scores2);
 
       scores.addMatch(ms);
     }
 
     return scores;
 
+  }
+
+  private static int getScoreFrom(final String text) {
+    if (text.equals(" ")) { // &nbsp;
+      return -1;
+    }
+    return Integer.parseInt(text);
   }
 
 
