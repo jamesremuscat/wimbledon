@@ -12,6 +12,24 @@ public class MatchScore {
   private int[] _scores1 = new int[5];
   private int[] _scores2 = new int[5];
 
+  private String _points1 = "0", _points2 = "0";
+
+  public String getPoints1() {
+    return _points1;
+  }
+
+  public void setPoints1(final String points1) {
+    _points1 = points1;
+  }
+
+  public String getPoints2() {
+    return _points2;
+  }
+
+  public void setPoints2(final String points2) {
+    _points2 = points2;
+  }
+
   public MatchScore() {
     for (int i = 1; i < 5; i++) {
       _scores1[i] = -1;
@@ -82,6 +100,10 @@ public class MatchScore {
     }
 
     return b.toString().trim();
+  }
+
+  public String getPointsAsString() {
+    return String.format("%2s-%-2s", _points1, _points2);
   }
 
 }
