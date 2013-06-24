@@ -34,6 +34,9 @@ public class Scores {
 
       ms.setCourt(table.select("div.eventinfo").text());
 
+      ms.setPlayer1(table.select("div.teamOne").select("div.name").text());
+      ms.setPlayer2(table.select("div.teamTwo").select("div.name").text());
+
       scores.addMatch(ms);
     }
 
