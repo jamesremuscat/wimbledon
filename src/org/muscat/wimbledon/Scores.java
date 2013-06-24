@@ -32,7 +32,8 @@ public class Scores {
     for (final Element table : tables) {
       final MatchScore ms = new MatchScore();
 
-      ms.setCourt(table.select("div.eventinfo").text());
+      final String fullEventText = table.select("div.eventinfo").text();
+      ms.setCourt(fullEventText.substring(0, fullEventText.indexOf("-") - 1));
 
       ms.setPlayer1(table.select("div.teamOne").select("div.name").text());
       ms.setPlayer2(table.select("div.teamTwo").select("div.name").text());
