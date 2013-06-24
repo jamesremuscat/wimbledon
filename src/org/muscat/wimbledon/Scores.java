@@ -68,8 +68,15 @@ public class Scores {
 
   }
 
-  private static String getPlayerNamesFrom(final Elements select) {
-    return select.text();
+  private static String getPlayerNamesFrom(final Elements namesContainer) {
+    final Elements as = namesContainer.first().select("a");
+    if (namesContainer.first().classNames().contains("singles")) {
+      return as.text();
+    }
+    if (namesContainer.first().classNames().contains("doubles")) {
+      return as.first().text() + " / " + as.get(1).text();
+    }
+    return namesContainer.text();
   }
 
   private static int getScoreFrom(final String text) {
