@@ -1,9 +1,6 @@
-syntax: glob
-*.pyc
-
-syntax: regexp
-^src/aldatesx\.pid$
 syntax: regexp
 ^build$
+syntax: regexp
+^bin$
 syntax: regexp
 ^javadoc$
