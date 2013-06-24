@@ -44,8 +44,8 @@ public class Scores {
       final int[] scores1 = new int[5];
       final int[] scores2 = new int[5];
       for (int i = 0; i < 5; i++) {
-        scores1[i] = getScoreFrom(teamOne.select("span.set" + (i + 1)).text());
-        scores2[i] = getScoreFrom(teamTwo.select("span.set" + (i + 1)).text());
+        scores1[i] = getScoreFrom(teamOne.select("span.set" + (i + 1)).first().ownText());
+        scores2[i] = getScoreFrom(teamTwo.select("span.set" + (i + 1)).first().ownText());
       }
 
       ms.setScores1(scores1);
