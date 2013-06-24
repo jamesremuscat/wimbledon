@@ -103,7 +103,14 @@ public class MatchScore {
   }
 
   public String getPointsAsString() {
-    return String.format("%2s-%-2s", _points1, _points2);
+    final String points = String.format("%2s-%-2s", _points1, _points2);
+    if (_server == 1) {
+      return "*" + points + " ";
+    }
+    if (_server == 2) {
+      return " " + points + "*";
+    }
+    return " " + points + " ";
   }
 
 }

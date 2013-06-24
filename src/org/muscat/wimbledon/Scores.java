@@ -54,6 +54,13 @@ public class Scores {
       ms.setPoints1(teamOne.select("span.pts").text());
       ms.setPoints2(teamTwo.select("span.pts").text());
 
+      if (teamOne.select("div.currentServer").size() == 1) {
+        ms.setServer(1);
+      }
+      else if (teamTwo.select("div.currentServer").size() == 1) {
+        ms.setServer(2);
+      }
+
       scores.addMatch(ms);
     }
 
