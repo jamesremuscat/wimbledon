@@ -51,6 +51,9 @@ public class Scores {
       ms.setScores1(scores1);
       ms.setScores2(scores2);
 
+      ms.setPoints1(teamOne.select("span.pts").text());
+      ms.setPoints2(teamTwo.select("span.pts").text());
+
       scores.addMatch(ms);
     }
 
@@ -59,7 +62,7 @@ public class Scores {
   }
 
   private static int getScoreFrom(final String text) {
-    if (text.equals(" ")) { // &nbsp;
+    if (text.equals(" ") || text.isEmpty()) { // &nbsp;
       return -1;
     }
     return Integer.parseInt(text);
