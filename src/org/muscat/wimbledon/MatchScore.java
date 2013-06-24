@@ -11,6 +11,14 @@ public class MatchScore {
 
   private int[] _scores1 = new int[5];
   private int[] _scores2 = new int[5];
+
+  public MatchScore() {
+    for (int i = 1; i < 5; i++) {
+      _scores1[i] = -1;
+      _scores2[i] = -1;
+    }
+  }
+
   public String getCourt() {
     return _court;
   }
