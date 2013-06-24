@@ -38,8 +38,8 @@ public class Scores {
       final Elements teamOne = table.select("div.teamOne");
       final Elements teamTwo = table.select("div.teamTwo");
 
-      ms.setPlayer1(teamOne.select("div.name").text());
-      ms.setPlayer2(teamTwo.select("div.name").text());
+      ms.setPlayer1(getPlayerNamesFrom(teamOne.select("div.name")));
+      ms.setPlayer2(getPlayerNamesFrom(teamTwo.select("div.name")));
 
       final int[] scores1 = new int[5];
       final int[] scores2 = new int[5];
@@ -66,6 +66,10 @@ public class Scores {
 
     return scores;
 
+  }
+
+  private static String getPlayerNamesFrom(final Elements select) {
+    return select.text();
   }
 
   private static int getScoreFrom(final String text) {
