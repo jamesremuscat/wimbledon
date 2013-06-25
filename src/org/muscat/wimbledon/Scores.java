@@ -74,7 +74,9 @@ public class Scores {
       return as.text();
     }
     if (namesContainer.first().classNames().contains("doubles")) {
-      return as.first().text() + " / " + as.get(1).text();
+      final String firstSurname = as.first().text().split(" ")[1];
+      final String secondSurname = as.get(1).text().split(" ")[1];
+      return firstSurname + " / " + secondSurname;
     }
     return namesContainer.text();
   }
