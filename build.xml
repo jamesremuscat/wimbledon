@@ -62,22 +62,9 @@
 
 <!--   <target name='commitTests' depends='unitTests, functionalTests' /> -->
 
-  <target name='docs'>
-    <javadoc sourcepath='src' classpathref="classpath" use='true' destdir='${docs.dir}' defaultexcludes='yes' author='true' packagenames='org.muscat.*' windowtitle='EVECacheReader'>
-      <doctitle><![CDATA[<h1>EVECache Reader</h1>]]></doctitle>
-      <bottom><![CDATA[<i>Copyright &#169; 2009-11 Muscaat / www.eve-markets.net</i>]]></bottom>
-    </javadoc>
-  </target>
-
-  <target name='srcdist'>
-    <mkdir dir='${dist.dir}' />
-    <zip destfile='${dist.dir}/EVECacheReader-src.zip' basedir='.' excludes='.svn bin/ build/ dist/ javadoc/ convertedFiles/ .settings/ ' />
-  </target>
-
-  <target name='dist' depends='compile,docs'>
+  <target name='dist' depends='compile'>
     <jar destfile='Wimbledon.jar'>
       <fileset dir='${build.dir}/classes' />
-      <fileset dir='${docs.dir}' />
     </jar>
   </target>
 
