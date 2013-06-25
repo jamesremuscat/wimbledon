@@ -61,6 +61,13 @@ public class Scores {
         ms.setServer(2);
       }
 
+      if (teamOne.select("div.winner").size() == 1) {
+        ms.setWinner(1);
+      }
+      else if (teamTwo.select("div.winner").size() == 1) {
+        ms.setWinner(2);
+      }
+
       scores.addMatch(ms);
     }
 

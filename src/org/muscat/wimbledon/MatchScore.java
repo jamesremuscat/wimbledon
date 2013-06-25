@@ -8,6 +8,7 @@ public class MatchScore {
   private int _seed1;
   private int _seed2;
   private int _server;
+  private int _winner;
 
   private int[] _scores1 = new int[5];
   private int[] _scores2 = new int[5];
@@ -73,6 +74,15 @@ public class MatchScore {
   public void setServer(final int server) {
     _server = server;
   }
+
+  public int getWinner() {
+    return _winner;
+  }
+
+  public void setWinner(final int winner) {
+    _winner = winner;
+  }
+
   public int[] getScores1() {
     return _scores1;
   }
