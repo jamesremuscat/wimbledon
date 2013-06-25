@@ -4,3 +4,6 @@ syntax: regexp
 ^bin$
 syntax: regexp
 ^javadoc$
+
+syntax: regexp
+^Wimbledon\.jar$
