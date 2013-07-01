@@ -6,7 +6,7 @@ public class ScoresFetcher implements Runnable {
 
   private static final int WAIT = 5000;
 
-  private static final String SCORES_URL = "http://www.wimbledon.com/en_GB/scores/index2.html";
+  private static final String SCORES_URL = "http://www.wimbledon.com/en_GB/scores/index.manual.html";
 
   private boolean _running = true;
 
