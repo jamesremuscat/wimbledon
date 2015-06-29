@@ -32,8 +32,8 @@ public class Scores {
     for (final Element table : tables) {
       final MatchScore ms = new MatchScore();
 
-      final String fullEventText = table.select("div.eventinfo").text();
-      ms.setCourt(fullEventText.substring(0, fullEventText.indexOf("-") - 1));
+      final String courtName = table.select("div.courtName").text();
+      ms.setCourt(courtName);
 
       final Elements teamOne = table.select("div.teamOne");
       final Elements teamTwo = table.select("div.teamTwo");
@@ -81,8 +81,8 @@ public class Scores {
       return as.text();
     }
     if (namesContainer.first().classNames().contains("doubles")) {
-      final String firstSurname = as.first().text().split(" ")[1];
-      final String secondSurname = as.get(1).text().split(" ")[1];
+      final String firstSurname = as.get(0).text();
+      final String secondSurname = as.get(1).text();
       return firstSurname + " / " + secondSurname;
     }
     return namesContainer.text();
